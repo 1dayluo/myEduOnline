@@ -14,7 +14,7 @@ class Course(models.Model):
     desc=models.CharField(max_length=300,verbose_name=u"课程描述")
     detail=models.TextField(verbose_name=u"课程详情")
     degree=models.CharField(choices=DEGREE_CHOICES,max_length=2)
-    learn_times = models.IntegerField(default==0,verbose_name=u"学习时长（分钟）")
+    learn_times = models.IntegerField(default=0,verbose_name=u"学习时长（分钟）")
     students=models.IntegerField(default=0,verbose_name=u"学习人数")
     fav_nums=models.IntegerField(default=0,verbose_name=u"收藏人数")
     image=models.ImageField(

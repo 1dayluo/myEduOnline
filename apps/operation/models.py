@@ -20,7 +20,7 @@ class UserAsk(models.Model):
 #用户对于课程评论
 class CourseComments(models.Model):
     course=models.ForeignKey(Course,verbose_name=u"课程",on_delete=models.CASCADE)
-    user=models.ForeignKey(UserProfile,verbose_name=u"用户")
+    user=models.ForeignKey(UserProfile,verbose_name=u"用户",on_delete=models.CASCADE)
     comments=models.CharField(max_length=250,verbose_name=u"评论")
     add_times=models.DateTimeField(default=datetime.now,verbose_name=u"评论时间")
     class Meta:
@@ -36,7 +36,7 @@ class UserFavorite(models.Model):
     user=models.ForeignKey(UserProfile,verbose_name=u"用户",on_delete=models.CASCADE)
     fav_id=models.IntegerField(default=0)
     fav_type=models.IntegerField(
-        choice=TYPE_CHOICES,
+        choices=TYPE_CHOICES,
         default=1,
         verbose_name=u"收藏类型"
     )

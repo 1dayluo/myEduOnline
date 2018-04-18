@@ -40,8 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'users',
+    'courses',
+    'operation',
+    'organization',
 ]
+AUTH_USER_MODEL = "users.UserProfile"
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -85,7 +90,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'NAME':'myonline',
+        'NAME':'myonline01',
         'USER':'root',
         'PASSWORD':'hold?fish:palm',
         'HOST':"127.0.0.1",

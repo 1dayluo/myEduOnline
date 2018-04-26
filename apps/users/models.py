@@ -13,7 +13,7 @@ class UserProfile(AbstractUser):
     nick_name = models.CharField(max_length=50,verbose_name=u"昵称",default="")
     birthday = models.DateTimeField(verbose_name=u"生日",null=True,blank=True)
     gender = models.CharField(
-        max_length=5,
+        max_length=7,
         verbose_name=u"性别",
         choices=GENDER_CHOICES,
         default="female",
@@ -50,6 +50,9 @@ class EmailVerifyRecord(models.Model):
         verbose_name = "邮箱验证码"
         verbose_name_plural = verbose_name
 
+    def __str__(self):
+        return '{0}({1})'.format(self.code, self.email)
+
 #轮播图
 
 class Banner(models.Model):
@@ -59,7 +62,7 @@ class Banner(models.Model):
         verbose_name=u"轮播图",
         max_length=100
     )
-    url = models.URLField(max_length=100,verbose_name=u"顺序")
+    url = models.URLField(max_length=100,verbose_name=u"链接")
     index = models.IntegerField(default=100,verbose_name=u"顺序")
     add_time = models.DateTimeField(default=datetime.now,verbose_name=u"添加时间")
 
